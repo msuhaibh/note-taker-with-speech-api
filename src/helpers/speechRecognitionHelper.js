@@ -1,4 +1,4 @@
-const helpers = {
+const speechRecognitionHelper = {
     createSpeechRecognition: function() {
         try {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -15,4 +15,4 @@ const helpers = {
     }
 }
 
-export default helpers;
+export default speechRecognitionHelper;

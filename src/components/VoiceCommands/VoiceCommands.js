@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./VoiceCommands.css";
-import helpers from "./helpers";
+import speechRecognitionHelper from "../../helpers/speechRecognitionHelper.js";
 
 class VoiceCommands extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class VoiceCommands extends Component {
             items: this.props.entries || [],
         };
 
-        this.recognition = helpers.createSpeechRecognition();
+        this.recognition = speechRecognitionHelper.createSpeechRecognition();
     }
 
     componentDidMount() {
@@ -21,6 +21,16 @@ class VoiceCommands extends Component {
 
         document.getElementById("startBtn").disabled = false;
         document.getElementById("stopBtn").disabled = true;
+    }
+
+    addItem = (e) => {
+        e.preventDefault();
+
+        let noteContent = document.getElementById("speechText").value;
+        
+        this.props.addItem(noteContent);
+
+        document.getElementById("speechText").value = "";
     }
 
     handleStartRecognition = (e) => {
@@ -43,7 +53,7 @@ class VoiceCommands extends Component {
 
     handleStopRecognition = (e) => {
         e.preventDefault();
-
+        
         this.recognition.stop();
 
         document.getElementById("startBtn").disabled = false;
@@ -66,27 +76,7 @@ class VoiceCommands extends Component {
     }
 
     handleNoteTaking = (e) => {
-        e.preventDefault();
 
-        let note = document.getElementById("speechText").value;
-        console.log(note);
-
-        if(note) {
-            const newItem = {
-                text: note,
-                key: Date.now()
-            };
-
-            this.setState((prevState) => {
-                console.log(prevState);
-                return {
-                    items: prevState.items.concat(newItem)
-                };
-            });
-        }
-
-        console.log(this.state.items);
-        document.getElementById("speechText").value = "";
     }
 
     render() {
@@ -106,7 +96,7 @@ class VoiceCommands extends Component {
                             <button type="button" className="btn btn-default" onClick={this.handleStopRecognition} id="stopBtn">Stop Recognition</button>
                         </div>
                         <div className="btn-group" role="group">
-                            <button type="button" className="btn btn-success" onClick={this.handleNoteTaking} id="takeNoteBtn">Take Note</button>
+                            <button type="button" className="btn btn-success" onClick={this.addItem} id="saveNoteBtn">Save Note</button>
                         </div>
                     </div>
                     <br/>
