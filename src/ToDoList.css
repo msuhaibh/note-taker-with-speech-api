@@ -1,0 +1,88 @@
+/* Basic Elements CSS Begins */
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lora', serif;
+    background-color:#22313F;
+    color:#F2F3F4;
+    margin-top: 2%;
+}
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif; 
+    /* text-transform: uppercase; */
+}
+p, label {
+    font-size: 1.8rem;
+}
+a {
+    color: #f8f8f8;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.section .row {
+    justify-content: center;
+}
+hr {
+    border-top: 1px solid #F2F3F4;
+}
+/* Basic Elements CSS Ends */
+
+/* Buttons CSS Begin */
+.btn {
+    text-transform: uppercase;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.btn-custom {
+    color: #F2F3F4;
+    background-color: #9b59b6;
+    border-color: #9b59b6;
+    font-weight: 700;
+}
+
+.btn-custom:hover {
+    color: #F2F3F4;
+    background-color: #8e44ad;
+    border: 1px solid #8e44ad;
+}
+
+.btn-custom:focus, .btn-custom.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-custom.disabled, .btn-custom:disabled {
+    color: #F2F3F4;
+    background-color: #9b59b6;
+    border: 1px solid #9b59b6;
+}
+
+.btn-custom:not(:disabled):not(.disabled):active, .btn-custom:not(:disabled):not(.disabled).active, .show > .btn-custom.dropdown-toggle {
+    color: #F2F3F4;
+    background-color: #8e44ad;
+    border: 1px solid #8e44ad;
+}
+
+.btn-custom:not(:disabled):not(.disabled):active:focus, .btn-custom:not(:disabled):not(.disabled).active:focus, .show > .btn-custom.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons CSS Ends */
+
+.nav.nav-tabs {
+    margin-bottom: 2%;
+}

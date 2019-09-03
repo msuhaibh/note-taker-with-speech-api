@@ -1,0 +1,21 @@
+.note-list {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.note-list li {
+    color: darkslategrey;
+}
+
+.note-list li:hover {
+    border-color: #66afe9;
+}
+
+.note-list li:hover:after {
+    font-family: "Glyphicons Halflings";
+    content: "\e020";
+    float:right;
+    clear: both;
+    color: #66afe9;
+    font-weight: bold;
+}
