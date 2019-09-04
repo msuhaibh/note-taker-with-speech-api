@@ -4,11 +4,12 @@
   }
   
   .note-list li {
-    color: darkslategrey;
+    background-color: #fff;
+    color: #22313F;
   }
   
   .note-list li:hover {
-    border-color: #66afe9;
+    border-color: #fff;
   }
   
   .note-list li:hover:after {
@@ -16,6 +17,10 @@
     content: "\e020";
     float:right;
     clear: both;
-    color: #66afe9;
+    color: #22313F;
     font-weight: bold;
+  }
+
+  .note-list .list-group-item {
+    word-break: break-word;
   }

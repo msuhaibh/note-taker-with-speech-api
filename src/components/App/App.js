@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./App.css";
 import ToDoItems from "../ToDoItems/ToDoItems.js";
 import VoiceCommands from '../VoiceCommands/VoiceCommands.js';
 import TextCommands from '../TextCommands/TextCommands.js';
@@ -14,7 +15,6 @@ class App extends Component {
     }
 
     addItem = (noteContent) => {
-        console.log(noteContent);
         if (noteContent) {
             const newItem = {
                 text: noteContent,
@@ -46,23 +46,22 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 col-md-offset-3 col-sm-12">
+                    <div className="col">
                         <h1>Speech-To-Text Note Taker</h1>
 
-                        <div id="textNoteTakerContainer">
+                        <section id="textNoteTakerContainer">
                             <TextCommands entries={this.state.items} addItem={this.addItem}/>
-                        </div>
+                        </section>
 
-                        <div id="speechNoteTakerContainer">
+                        <section id="speechNoteTakerContainer">
                             <VoiceCommands entries={this.state.items} addItem={this.addItem}/>
-                        </div>
+                        </section>
 
                         <hr/>
-
-                        <div id="notesListContainer">
+                        <section id="notesListContainer">
                             <h3 id="noteListHeader">Your Notes:</h3>
                             <ToDoItems entries={this.state.items} deleteItem={this.deleteItem}/>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ class VoiceCommands extends Component {
 
         this.state = {
             items: this.props.entries || [],
+            listening: false,
+            speechText: ""
         };
 
         this.recognition = speechRecognitionHelper.createSpeechRecognition();
@@ -18,19 +20,18 @@ class VoiceCommands extends Component {
             document.getElementById("SpeechRecognitionContainer").style.display = "none";
             document.getElementById("noBrowserSupport").style.display = "block";
         }
-
-        document.getElementById("startBtn").disabled = false;
-        document.getElementById("stopBtn").disabled = true;
     }
 
     addItem = (e) => {
         e.preventDefault();
 
-        let noteContent = document.getElementById("speechText").value;
+        let noteContent = this.state.speechText;
         
         this.props.addItem(noteContent);
 
-        document.getElementById("speechText").value = "";
+        this.setState({
+            speechText: ""
+        });
     }
 
     handleStartRecognition = (e) => {
@@ -38,8 +39,9 @@ class VoiceCommands extends Component {
 
         this.recognition.start();
 
-        document.getElementById("startBtn").disabled = true;
-        document.getElementById("stopBtn").disabled = false;
+        this.setState({
+            listening: true
+        });
 
         this.recognition.onstart = () => { 
             console.log("Voice recognition activated. Try speaking into the microphone.");
@@ -56,8 +58,9 @@ class VoiceCommands extends Component {
         
         this.recognition.stop();
 
-        document.getElementById("startBtn").disabled = false;
-        document.getElementById("stopBtn").disabled = true;
+        this.setState({
+            listening: false
+        });
 
         this.recognition.onend = () => {
             console.log("Voice recognition stopped via click");
@@ -70,14 +73,15 @@ class VoiceCommands extends Component {
                 if (event.results[i].isFinal) notes += transcript + ' ';
             }
 
-            console.log(notes);
-            document.getElementById("speechText").value = notes;
+            this.setState({
+                speechText: notes
+            });
         }
     }
 
-    handleNoteTaking = (e) => {
-
-    }
+    handleChange = (e) => {
+        this.setState({speechText: e.target.value});
+    };
 
     render() {
         return (
@@ -86,14 +90,14 @@ class VoiceCommands extends Component {
                 <div id="SpeechRecognitionContainer" ref="SpeechRecognitionContainer">
                     
                     <h2>Add New Note Via Speech</h2>
-                    <textarea className="form-control" id="speechText"></textarea>
+                    <textarea className="form-control" id="speechText" value={this.state.speechText} onChange={this.handleChange}></textarea>
                     <br/>
                     <div className="btn-group btn-group-justified" role="group" aria-label="...">
                         <div className="btn-group" role="group">
-                            <button type="button" className="btn btn-primary" onClick={this.handleStartRecognition} id="startBtn">Start Recognition</button>
+                            <button type="button" className="btn btn-primary" onClick={this.handleStartRecognition} id="startBtn" disabled={this.state.listening}>Start Recognition</button>
                         </div>
                         <div className="btn-group" role="group">
-                            <button type="button" className="btn btn-default" onClick={this.handleStopRecognition} id="stopBtn">Stop Recognition</button>
+                            <button type="button" className="btn btn-secondary" onClick={this.handleStopRecognition} id="stopBtn" disabled={!this.state.listening}>Stop Recognition</button>
                         </div>
                         <div className="btn-group" role="group">
                             <button type="button" className="btn btn-success" onClick={this.addItem} id="saveNoteBtn">Save Note</button>
