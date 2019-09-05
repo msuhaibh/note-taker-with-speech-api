@@ -1,12 +1,24 @@
 import React, {Component} from "react";
 import "./ToDoItems.css";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class ToDoItems extends Component {
     createNoteItemDisplay = (item) => {
-        return <li
-            onClick={() => this.delete(item.key)}
-            key={item.key}
-            className="list-group-item">{item.text}</li>
+        return (
+            <ListItem component="li" className="note-list-item" key={item.key}>
+                <ListItemText>{item.text}</ListItemText>
+                <ListItemSecondaryAction>
+                    <IconButton edge="end" aria-label="delete" onClick={() => this.delete(item.key)} >
+                      <DeleteIcon/>
+                    </IconButton>
+                  </ListItemSecondaryAction>
+            </ListItem>
+        )
     }
 
     delete(key) {
@@ -18,9 +30,9 @@ class ToDoItems extends Component {
         const listItems = toDoEntries.map(this.createNoteItemDisplay);
 
         return (
-            <ul className="note-list list-group">
+            <List component="ul" className="note-list" disablePadding={true}>
                 {listItems}
-            </ul>
+            </List>
         )
     }
 }

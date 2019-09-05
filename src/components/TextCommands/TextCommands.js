@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import './TextCommands.css';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class TextCommands extends Component {
     constructor(props) {
@@ -16,7 +18,9 @@ class TextCommands extends Component {
 
         let noteContent = this.state.value;
 
-        this.props.addItem(noteContent);
+        this
+            .props
+            .addItem(noteContent);
 
         this.setState({value: ""});
     }
@@ -29,16 +33,21 @@ class TextCommands extends Component {
         return (
             <div>
                 <h2>Add New Note Via Typing</h2>
-                <div id="textNoteTakerContainer">
-                    <form onSubmit={this.addItem}>
-                        <div className="input-group">
-                            <input type="text" name="note" value={this.state.value} onChange={this.handleChange} placeholder="Enter your note" className="form-control" id="textNoteField"/>
-                            <span className="input-group-btn">
-                                <button type="submit" className="btn btn-custom btn-primary">Submit</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
+
+                <form onSubmit={this.addItem}>
+                    <TextField
+                        id="outlined-multiline-static textNoteField"
+                        label="Enter your note"
+                        multiline
+                        fullWidth
+                        rows="2"
+                        margin="normal"
+                        variant="outlined"
+                        value={this.state.value}
+                        onChange={this.handleChange}/>
+
+                    <Button variant="contained" color="primary" type="submit">Submit</Button>
+                </form>
             </div>
         )
     }
