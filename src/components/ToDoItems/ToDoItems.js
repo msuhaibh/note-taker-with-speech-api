@@ -30,9 +30,11 @@ class ToDoItems extends Component {
         const listItems = toDoEntries.map(this.createNoteItemDisplay);
 
         return (
-            <List component="ul" className="note-list" disablePadding={true}>
-                {listItems}
-            </List>
+            listItems.length > 0 ? (
+                <List component="ul" className="note-list" disablePadding={true}>
+                    {listItems}
+                </List>
+            ) : (<h2>You have no notes</h2> )
         )
     }
 }
