@@ -9,7 +9,7 @@ const Navbar = () => {
         <AppBar position="static">
             <Toolbar>
                 <Typography component="h1" variant="h6" color="inherit">
-                    Speech-To-Text Note Taker
+                    Note Taker With Speech Recognition Api
                 </Typography>
             </Toolbar>
         </AppBar>
