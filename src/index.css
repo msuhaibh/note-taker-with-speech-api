@@ -19,13 +19,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 20px;
-  font-weight: 700;
-  /* text-transform: uppercase; */
-}
-
-p,
-label {
-  font-size: 1.8rem;
 }
 
 a {
@@ -35,21 +28,4 @@ a {
   transition: all .2s ease-in-out;
 }
 
-.section .row {
-  justify-content: center;
-}
-
-hr {
-  border-top: 1px solid #F2F3F4;
-}
-
 /* Basic Elements CSS Ends */
-
-
-/* Buttons CSS Ends */
-
-input, textarea {
-  background: #fff;
-  border-collapse: #fff;
-  color: #000;
-}

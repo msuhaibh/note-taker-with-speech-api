@@ -1,19 +1,7 @@
-.note-list {
-  text-decoration: none;
-  list-style-type: none;
-  padding-top: 0;
-  padding-bottom: 0;
-  color: #fff;
-}
-
 .note-list li {
   background-color: #22313F;
   color: #fff;
   border-bottom: 1px solid #fff;
-}
-
-.note-list .note-list-item:hover {
-  cursor: pointer;
 }
 
 .note-list .list-group-item {

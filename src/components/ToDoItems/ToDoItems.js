@@ -31,10 +31,13 @@ class ToDoItems extends Component {
 
         return (
             listItems.length > 0 ? (
-                <List component="ul" className="note-list" disablePadding={true}>
-                    {listItems}
-                </List>
-            ) : (<h2>You have no notes</h2> )
+                <div>
+                    <h2>Your Notes</h2>
+                    <List component="ul" className="note-list" disablePadding={true}>
+                        {listItems}
+                    </List>
+                </div>
+            ) : (<h2>You Have No Notes</h2> )
         )
     }
 }

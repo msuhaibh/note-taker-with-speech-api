@@ -7,6 +7,7 @@ import ToDoItems from '../ToDoItems/ToDoItems.js'
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 const uuidv4 = require('uuid/v4');
 
 function TabPanel(props) {
@@ -85,16 +86,20 @@ class CustomTabs extends Component {
     render() {
         return (
             <div>
-                <Tabs
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered>
-                    <Tab label="Add New Note Via Speech" {...a11yProps(0)}/>
-                    <Tab label="Add New Note Via Typing" {...a11yProps(1)}/>
-                    <Tab label="Your Notes" {...a11yProps(2)}/>
-                </Tabs>
+                <Grid container direction="row">
+                    <Grid item xs={12}>
+                        <Tabs
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            centered>
+                            <Tab label="Add By Speech" {...a11yProps(0)}/>
+                            <Tab label="Add By Text" {...a11yProps(1)}/>
+                            <Tab label="Your Notes" {...a11yProps(2)}/>
+                        </Tabs>
+                    </Grid>
+                </Grid>
                 <TabPanel value={this.state.value} index={0}>
                     <VoiceCommands entries={this.state.items} addItem={this.addItem}/>
                 </TabPanel>

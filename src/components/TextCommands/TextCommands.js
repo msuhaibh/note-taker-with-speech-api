@@ -32,7 +32,7 @@ class TextCommands extends Component {
     render() {
         return (
             <div>
-                <h2>Add New Note Via Typing</h2>
+                <h2>Add New Note By Text</h2>
 
                 <form onSubmit={this.addItem}>
                     <TextField

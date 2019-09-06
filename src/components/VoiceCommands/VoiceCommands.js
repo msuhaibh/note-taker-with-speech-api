@@ -87,7 +87,7 @@ class VoiceCommands extends Component {
                     Demo In Google Chrome for Speech Functionality.</h4>
 
                 <div id="SpeechRecognitionContainer" ref="SpeechRecognitionContainer">
-                    <h2>Add New Note Via Speech</h2>
+                    <h2>Add New Note By Speech</h2>
 
                     <TextField
                         value={this.state.speechText}
