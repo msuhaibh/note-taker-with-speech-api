@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/note-taker-with-speech-api/static/css/main.a59ee820.chunk.css",
+    "main.js": "/note-taker-with-speech-api/static/js/main.342fe46f.chunk.js",
+    "main.js.map": "/note-taker-with-speech-api/static/js/main.342fe46f.chunk.js.map",
+    "runtime~main.js": "/note-taker-with-speech-api/static/js/runtime~main.bdb085f0.js",
+    "runtime~main.js.map": "/note-taker-with-speech-api/static/js/runtime~main.bdb085f0.js.map",
+    "static/js/2.f8b82e56.chunk.js": "/note-taker-with-speech-api/static/js/2.f8b82e56.chunk.js",
+    "static/js/2.f8b82e56.chunk.js.map": "/note-taker-with-speech-api/static/js/2.f8b82e56.chunk.js.map",
+    "index.html": "/note-taker-with-speech-api/index.html",
+    "precache-manifest.b0e58d0afcd8eddcbf79805a402d373a.js": "/note-taker-with-speech-api/precache-manifest.b0e58d0afcd8eddcbf79805a402d373a.js",
+    "service-worker.js": "/note-taker-with-speech-api/service-worker.js",
+    "static/css/main.a59ee820.chunk.css.map": "/note-taker-with-speech-api/static/css/main.a59ee820.chunk.css.map"
+  }
+}
